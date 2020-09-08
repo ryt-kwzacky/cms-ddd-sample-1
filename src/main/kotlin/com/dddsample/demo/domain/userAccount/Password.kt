@@ -8,6 +8,8 @@ package com.dddsample.demo.domain.userAccount
  * パスワード
  */
 data class Password(val value: String) {
-
-
+    fun toHash(): PasswordHash {
+        val hash = value // TODO : hash化する処理
+        return PasswordHash(hash)
+    }
 }

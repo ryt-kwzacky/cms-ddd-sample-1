@@ -8,6 +8,8 @@ package com.dddsample.demo.domain.website
  * ウェブサイト用リポジトリ
  */
 interface WebsiteRepository {
+    fun nextIdentifier(): WebsiteId
+
     fun retrieveById(id: WebsiteId): Website?
 
     fun store(website: Website)

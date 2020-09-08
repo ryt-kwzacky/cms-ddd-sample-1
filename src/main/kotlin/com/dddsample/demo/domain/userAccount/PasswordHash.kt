@@ -8,6 +8,11 @@ package com.dddsample.demo.domain.userAccount
  * パスワードハッシュ
  */
 data class PasswordHash(val value: String) {
+    init {
+        validate()
+    }
 
-
+    fun validate() {
+        TODO()
+    }
 }

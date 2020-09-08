@@ -12,5 +12,23 @@ class UserAccount(
         var mailAddress: MailAddress,
         var passwordHash: PasswordHash
 ) {
+    companion object {
+        fun create(
+                id: UserAccountId,
+                mailAddress: MailAddress,
+                password: Password
+        ) = UserAccount(
+                id,
+                mailAddress,
+                password.toHash()
+        )
+    }
 
+    fun changeMailAddress(mailAddress: MailAddress) {
+        this.mailAddress = mailAddress
+    }
+
+    fun changePassword(password: Password) {
+        this.passwordHash = password.toHash()
+    }
 }

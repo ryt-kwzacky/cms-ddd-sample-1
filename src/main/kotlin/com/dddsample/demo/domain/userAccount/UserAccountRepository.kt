@@ -8,6 +8,8 @@ package com.dddsample.demo.domain.userAccount
  * ユーザーアカウント用リポジトリ
  */
 interface UserAccountRepository {
+    fun nextIdentifier(): UserAccountId
+
     fun retrieveById(id: UserAccountId): UserAccount?
 
     fun store(userAccount: UserAccount)

@@ -8,6 +8,11 @@ package com.dddsample.demo.domain.userAccount
  * メールアドレス
  */
 data class MailAddress(val value: String) {
+    init {
+        validate()
+    }
 
-
+    fun validate() {
+        TODO()
+    }
 }

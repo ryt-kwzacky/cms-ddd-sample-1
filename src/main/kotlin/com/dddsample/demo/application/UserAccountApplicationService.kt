@@ -1,9 +1,27 @@
 package com.dddsample.demo.application
 
-class UserAccountApplicationService {
+import com.dddsample.demo.domain.userAccount.MailAddress
+import com.dddsample.demo.domain.userAccount.Password
+import com.dddsample.demo.domain.userAccount.UserAccount
+import com.dddsample.demo.domain.userAccount.UserAccountId
+import com.dddsample.demo.domain.userAccount.UserAccountRepository
+
+class UserAccountApplicationService(
+        private val userAccountRepository: UserAccountRepository
+) {
     // 会員登録をする
-    fun signUp() {
-        TODO()
+    fun signUp(
+            mailAddress: MailAddress,
+            password: Password
+    ): UserAccountId {
+        val newUserAccount = UserAccount.create(
+                id = userAccountRepository.nextIdentifier(),
+                mailAddress = mailAddress,
+                password = password
+        )
+        userAccountRepository.store(newUserAccount)
+
+        return newUserAccount.id
     }
 
     // メールアドレスを変更する

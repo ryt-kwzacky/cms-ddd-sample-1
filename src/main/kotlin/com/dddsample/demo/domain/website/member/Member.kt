@@ -13,6 +13,9 @@ data class Member(
         val userAccountId: UserAccountId,
         val role: Role
 ) {
+    companion object {
+        fun createNewMember(userAccountId: UserAccountId) = Member(userAccountId = userAccountId, role = Role.EDITOR)
+    }
 
-
+    fun justifyWithRole(newRole: Role) = Member(userAccountId = this.userAccountId, role = newRole)
 }
